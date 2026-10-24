@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esha Shahid | Computer Vision & Deep Learning Specialist | Backend AI Developer</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js" crossorigin="anonymous"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#060B18',
+                            800: '#0B132B',
+                            700: '#1C2541',
+                            600: '#2A365C'
+                        },
+                        cyan: {
+                            accent: '#00F5D4',
+                            glow: 'rgba(0, 245, 212, 0.25)'
+                        },
+                        purple: {
+                            accent: '#7B2CBF',
+                            glow: 'rgba(123, 44, 191, 0.25)'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #060B18;
+            color: #F3F4F6;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism Styles */
+        .glass-card {
+            background: rgba(11, 19, 43, 0.65);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        .glass-card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .glass-card-hover:hover {
+            border-color: rgba(0, 245, 212, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px -10px rgba(0, 245, 212, 0.2);
+        }
+
+        .glass-nav {
+            background: rgba(6, 11, 24, 0.85);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* Neon Text Glow */
+        .glow-text-cyan {
+            text-shadow: 0 0 12px rgba(0, 245, 212, 0.6);
+        }
+        .glow-text-purple {
+            text-shadow: 0 0 12px rgba(123, 44, 191, 0.6);
+        }
+
+        /* Background Grid Animation */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+
+        /* Terminal Scrollbar */
+        .terminal-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .terminal-scroll::-webkit-scrollbar-track {
+            background: #0B132B;
+        }
+        .terminal-scroll::-webkit-scrollbar-thumb {
+            background: #2A365C;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body class="bg-navy-900 text-gray-100 antialiased relative selection:bg-cyan-accent selection:text-navy-900">
+
+    <!-- Ambient Grid Background -->
+    <div class="fixed inset-0 bg-grid pointer-events-none z-0"></div>
+    <div class="fixed -top-40 -left-40 w-96 h-96 bg-cyan-accent/10 rounded-full blur-[120px] pointer-events-none"></div>
+    <div class="fixed top-1/2 -right-40 w-96 h-96 bg-purple-accent/15 rounded-full blur-[140px] pointer-events-none"></div>
+
+    <!-- Navigation Header -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#hero" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-accent to-purple-accent p-[2px]">
+                    <div class="w-full h-full bg-navy-900 rounded-[10px] flex items-center justify-center font-heading font-bold text-cyan-accent group-hover:bg-transparent group-hover:text-navy-900 transition-all">
+                        ES
+                    </div>
+                </div>
+                <span class="font-heading font-bold text-xl tracking-tight text-white group-hover:text-cyan-accent transition-colors">
+                    Esha Shahid<span class="text-cyan-accent">.ai</span>
+                </span>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
+                <a href="#about" class="hover:text-cyan-accent transition-colors">About & Metrics</a>
+                <a href="#experience" class="hover:text-cyan-accent transition-colors">Experience</a>
+                <a href="#projects" class="hover:text-cyan-accent transition-colors">Projects</a>
+                <a href="#skills" class="hover:text-cyan-accent transition-colors">Skills</a>
+                <a href="#terminal" class="hover:text-cyan-accent transition-colors">Interactive CLI</a>
+                <a href="#contact" class="px-5 py-2.5 rounded-full border border-cyan-accent/40 text-cyan-accent hover:bg-cyan-accent hover:text-navy-900 font-semibold transition-all shadow-lg shadow-cyan-accent/10">
+                    Get in Touch
+                </a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-gray-300 hover:text-white focus:outline-none">
+                <i class="fa-solid fa-bars-staggered text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobileDrawer" class="hidden md:hidden bg-navy-900/95 backdrop-blur-xl border-b border-gray-800 px-6 py-6 space-y-4">
+            <a href="#about" class="mobile-link block text-gray-300 hover:text-cyan-accent">About & Metrics</a>
+            <a href="#experience" class="mobile-link block text-gray-300 hover:text-cyan-accent">Experience</a>
+            <a href="#projects" class="mobile-link block text-gray-300 hover:text-cyan-accent">Projects</a>
+            <a href="#skills" class="mobile-link block text-gray-300 hover:text-cyan-accent">Skills</a>
+            <a href="#terminal" class="mobile-link block text-gray-300 hover:text-cyan-accent">Interactive CLI</a>
+            <a href="#contact" class="mobile-link block text-cyan-accent font-semibold pt-2">Get in Touch →</a>
+        </div>
+    </header>
+
+    <main class="relative z-10 pt-20">
+        
+        <!-- HERO SECTION -->
+        <section id="hero" class="min-h-[calc(100vh-80px)] flex items-center justify-center py-16 px-6 relative">
+            <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Text Content -->
+                <div class="lg:col-span-7 space-y-8 text-left">
+                    <div class="inline-flex items-center space-x-3 px-4 py-2 rounded-full glass-card border border-cyan-accent/30 text-cyan-accent text-xs md:text-sm font-mono">
+                        <span class="flex h-2 w-2 relative">
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-accent opacity-75"></span>
+                          <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-accent"></span>
+                        </span>
+                        <span>Backend & Computer Vision AI Specialist</span>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h1 class="text-4xl md:text-6xl lg:text-7xl font-heading font-extrabold text-white tracking-tight leading-none">
+                            Hi, I'm <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-accent via-teal-300 to-purple-400 glow-text-cyan">Esha Shahid</span>
+                        </h1>
+                        <p class="text-xl md:text-2xl font-heading text-gray-300 font-medium">
+                            Computer Science Graduate & AI Systems Engineer
+                        </p>
+                    </div>
+
+                    <p class="text-gray-400 text-base md:text-lg leading-relaxed max-w-2xl">
+                        Specializing in real-time computer vision architectures, agentic AI voice platforms, deep learning classification, and enterprise-grade backend infrastructure on FastAPI & Oracle 21c stacks.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <a href="#projects" class="px-7 py-3.5 rounded-xl bg-gradient-to-r from-cyan-accent to-teal-400 text-navy-900 font-bold hover:shadow-lg hover:shadow-cyan-accent/30 transition-all flex items-center space-x-2">
+                            <span>Explore Projects</span>
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                        <a href="https://github.com/Isha-Shahid" target="_blank" class="px-7 py-3.5 rounded-xl glass-card text-white font-semibold hover:border-cyan-accent/50 hover:bg-navy-800 transition-all flex items-center space-x-2">
+                            <i class="fa-brands fa-github text-xl"></i>
+                            <span>GitHub Profile</span>
+                        </a>
+                        <a href="#contact" class="px-7 py-3.5 rounded-xl glass-card text-gray-300 hover:text-white font-semibold hover:border-purple-accent/50 transition-all flex items-center space-x-2">
+                            <i class="fa-regular fa-envelope text-lg"></i>
+                            <span>Contact Me</span>
+                        </a>
+                    </div>
+
+                    <!-- Live Quick Metrics -->
+                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-gray-800/80">
+                        <div>
+                            <div class="text-2xl md:text-3xl font-heading font-bold text-cyan-accent font-mono">0.84s</div>
+                            <div class="text-xs text-gray-400">YOLOv8 Inference</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl md:text-3xl font-heading font-bold text-purple-400 font-mono">6,951+</div>
+                            <div class="text-xs text-gray-400">CV Training Dataset</div>
+                        </div>
+                        <div>
+                            <div class="text-2xl md:text-3xl font-heading font-bold text-white font-mono">1st Class</div>
+                            <div class="text-xs text-gray-400">Honours CS Degree</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Visual: Floating Tech Card / Interactive Console Preview -->
+                <div class="lg:col-span-5 relative">
+                    <div class="glass-card rounded-2xl p-6 border border-cyan-accent/20 shadow-2xl relative overflow-hidden group">
+                        <!-- Card Decorative Header -->
+                        <div class="flex items-center justify-between pb-4 mb-4 border-b border-gray-800">
+                            <div class="flex space-x-2">
+                                <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+                                <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
+                                <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
+                            </div>
+                            <span class="text-xs font-mono text-gray-400">system_status: active</span>
+                        </div>
+
+                        <!-- Card Body Content -->
+                        <div class="space-y-4 font-mono text-xs md:text-sm">
+                            <div class="p-3 rounded-lg bg-navy-900/80 border border-gray-800 text-gray-300">
+                                <span class="text-purple-400">const</span> developer = {<br>
+                                &nbsp;&nbsp;name: <span class="text-cyan-accent">'Esha Shahid'</span>,<br>
+                                &nbsp;&nbsp;degree: <span class="text-cyan-accent">'BSc (Hons) Computer Science'</span>,<br>
+                                &nbsp;&nbsp;university: <span class="text-cyan-accent">'University of Hertfordshire (UK)'</span>,<br>
+                                &nbsp;&nbsp;expertise: [<span class="text-teal-300">'YOLOv8'</span>, <span class="text-teal-300">'FastAPI'</span>, <span class="text-teal-300">'Oracle 21c'</span>, <span class="text-teal-300">'Agentic AI'</span>]<br>
+                                };
+                            </div>
+
+                            <div class="p-4 rounded-lg bg-navy-900/90 border border-cyan-accent/30 space-y-2">
+                                <div class="flex justify-between items-center text-xs text-gray-400">
+                                    <span>Core Focus</span>
+                                    <span class="text-cyan-accent font-semibold">Ready for Deployment</span>
+                                </div>
+                                <div class="text-sm font-semibold text-white font-sans">
+                                    Computer Vision & Microservice Backend Architectures
+                                </div>
+                                <div class="w-full bg-gray-800 h-2 rounded-full overflow-hidden">
+                                    <div class="bg-gradient-to-r from-cyan-accent to-purple-accent h-full w-[95%]"></div>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-3 text-center">
+                                <div class="p-3 rounded-lg bg-navy-900/60 border border-gray-800">
+                                    <i class="fa-solid fa-eye text-cyan-accent text-lg mb-1"></i>
+                                    <div class="text-[11px] text-gray-400">Real-time Vision</div>
+                                </div>
+                                <div class="p-3 rounded-lg bg-navy-900/60 border border-gray-800">
+                                    <i class="fa-solid fa-server text-purple-400 text-lg mb-1"></i>
+                                    <div class="text-[11px] text-gray-400">Agentic Voice OS</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ABOUT & METRICS SECTION -->
+        <section id="about" class="py-20 px-6 relative border-t border-gray-800/50">
+            <div class="max-w-7xl mx-auto space-y-12">
+                <div class="text-center space-y-4 max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-white">About & Key Performance Metrics</h2>
+                    <p class="text-gray-400 text-base">
+                        Bridging academic excellence with production-ready AI solutions and robust backend engineering.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Metric Card 1 -->
+                    <div class="glass-card p-6 rounded-2xl glass-card-hover border-t-2 border-t-cyan-accent space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-accent/10 flex items-center justify-center text-cyan-accent text-2xl">
+                            <i class="fa-solid fa-bolt"></i>
+                        </div>
+                        <div class="text-3xl font-heading font-bold text-white font-mono">0.84s</div>
+                        <h3 class="text-sm font-semibold text-cyan-accent uppercase tracking-wider">Inference Speed</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed">
+                            Real-time YOLOv8 hazard detection pipeline operating with minimal latency for smart city municipal mapping.
+                        </p>
+                    </div>
+
+                    <!-- Metric Card 2 -->
+                    <div class="glass-card p-6 rounded-2xl glass-card-hover border-t-2 border-t-purple-400 space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-purple-accent/10 flex items-center justify-center text-purple-400 text-2xl">
+                            <i class="fa-solid fa-database"></i>
+                        </div>
+                        <div class="text-3xl font-heading font-bold text-white font-mono">6,951+</div>
+                        <h3 class="text-sm font-semibold text-purple-400 uppercase tracking-wider">Dataset Engineering</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed">
+                            Extensive custom image dataset annotation and augmentation for robust pothole & crack detection models.
+                        </p>
+                    </div>
+
+                    <!-- Metric Card 3 -->
+                    <div class="glass-card p-6 rounded-2xl glass-card-hover border-t-2 border-t-teal-400 space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-teal-400/10 flex items-center justify-center text-teal-400 text-2xl">
+                            <i class="fa-solid fa-bullseye"></i>
+                        </div>
+                        <div class="text-3xl font-heading font-bold text-white font-mono">80-90%</div>
+                        <h3 class="text-sm font-semibold text-teal-400 uppercase tracking-wider">Diagnostic Accuracy</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed">
+                            Achieved across custom CNN medical chest X-ray models and MobileNetV2 agricultural disease classifiers.
+                        </p>
+                    </div>
+
+                    <!-- Metric Card 4 -->
+                    <div class="glass-card p-6 rounded-2xl glass-card-hover border-t-2 border-t-cyan-accent space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-cyan-accent/10 flex items-center justify-center text-cyan-accent text-2xl">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <div class="text-3xl font-heading font-bold text-white font-mono">Oracle 21c</div>
+                        <h3 class="text-sm font-semibold text-cyan-accent uppercase tracking-wider">Biometric Security</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed">
+                            FastAPI facial verification services integrated with YuNet, SFace, anti-spoofing, and bcrypt PIN hashing.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Academic & Technical Background Summary -->
+                <div class="glass-card p-8 rounded-2xl border border-gray-800 grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+                    <div class="lg:col-span-2 space-y-4">
+                        <span class="text-xs font-mono text-cyan-accent uppercase tracking-wider">Academic Background</span>
+                        <h3 class="text-2xl font-heading font-bold text-white">First Class Honours Graduate in Computer Science</h3>
+                        <p class="text-gray-300 text-sm leading-relaxed">
+                            Earned my degree from TMUC, affiliated with the <strong>University of Hertfordshire (UK)</strong>. Combining high academic rigor with hands-on practical engineering, I specialize in building robust AI pipelines and scalable backend systems.
+                        </p>
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            Additionally, I instruct AI/ML concepts at a professional faculty level, combining deep technical knowledge with the capability to clearly articulate complex algorithms and architectures.
+                        </p>
+                    </div>
+                    <div class="space-y-3 bg-navy-900/80 p-6 rounded-xl border border-gray-800">
+                        <div class="text-xs font-mono text-purple-400 uppercase">Core Competencies</div>
+                        <ul class="space-y-2 text-xs font-mono text-gray-300">
+                            <li class="flex items-center space-x-2">
+                                <i class="fa-solid fa-check text-cyan-accent"></i>
+                                <span>YOLOv8 & MobileNetV2 Computer Vision</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <i class="fa-solid fa-check text-cyan-accent"></i>
+                                <span>FastAPI & Flask REST Microservices</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <i class="fa-solid fa-check text-cyan-accent"></i>
+                                <span>Agentic Voice & LiveKit Integrations</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <i class="fa-solid fa-check text-cyan-accent"></i>
+                                <span>Oracle 21c, ORDS & Redis Data Layer</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE TIMELINE -->
+<!-- Work Experience Section -->
+<section class="py-16 px-4 md:px-8 max-w-6xl mx-auto" id="experience">
+    <div class="text-center space-y-4 max-w-3xl mx-auto mb-12">
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-white">Work Experience</h2>
+        <p class="text-gray-400 text-base">Production engineering, AI agent deployments, and academic instruction.</p>
+    </div>
+
+    <div class="space-y-8">
+        <!-- 1. Paksaaiban Software House -->
+        <div class="glass-panel p-6 md:p-8 rounded-2xl border border-cyan-500/20 bg-slate-900/60 backdrop-blur-xl">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 mb-4">
+                <div>
+                    <h3 class="text-xl font-bold text-white">Backend Developer</h3>
+                    <p class="text-cyan-400 font-medium">Paksaaiban Software House — Full-Time</p>
+                </div>
+                <span class="text-xs font-mono text-gray-400 bg-white/5 px-3 py-1 rounded-full border border-white/10">Aug 2026 – Present</span>
+            </div>
+            <ul class="list-disc list-inside space-y-2 text-gray-300 text-sm md:text-base leading-relaxed">
+                <li>Build and maintain production backend infrastructure for an AI voice router and Agentics OS platform (LiveKit audio streaming, Redis session memory).</li>
+                <li>Engineered MTCNN/FaceNet facial verification services and CRM/messaging gateway integrations (Zoho, WhatsApp Business API, SMTP/SMS).</li>
+                <li>Designed automated system health monitoring, failover routing, and escalation protocols for high availability.</li>
+            </ul>
+        </div>
+
+        <!-- 2. Dreamz Marketing -->
+        <div class="glass-panel p-6 md:p-8 rounded-2xl border border-cyan-500/20 bg-slate-900/60 backdrop-blur-xl">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 mb-4">
+                <div>
+                    <h3 class="text-xl font-bold text-white">Backend Developer</h3>
+                    <p class="text-cyan-400 font-medium">Dreamz Marketing — Contract</p>
+                </div>
+                <span class="text-xs font-mono text-gray-400 bg-white/5 px-3 py-1 rounded-full border border-white/10">Aug 2025 – Oct 2026</span>
+            </div>
+            <ul class="list-disc list-inside space-y-2 text-gray-300 text-sm md:text-base leading-relaxed">
+                <li>Architected backend system components for AI voice routing using LiveKit and Redis-backed persona memory.</li>
+                <li>Engineered a FastAPI biometrics service featuring YuNet/SFace face matching, active liveness anti-spoofing, and Oracle 21c / ORDS integration.</li>
+                <li>Implemented bcrypt-secured PIN authentication APIs and robust endpoint security protocols.</li>
+            </ul>
+        </div>
+
+        <!-- 3. Heritage Public School -->
+        <div class="glass-panel p-6 md:p-8 rounded-2xl border border-cyan-500/20 bg-slate-900/60 backdrop-blur-xl">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 mb-4">
+                <div>
+                    <h3 class="text-xl font-bold text-white">STEM Instructor</h3>
+                    <p class="text-cyan-400 font-medium">Heritage Public School — Part-Time</p>
+                </div>
+                <span class="text-xs font-mono text-gray-400 bg-white/5 px-3 py-1 rounded-full border border-white/10">Aug 2024 – May 2025</span>
+            </div>
+            <ul class="list-disc list-inside space-y-2 text-gray-300 text-sm md:text-base leading-relaxed">
+                <li>Delivered interactive STEM and computer science curriculum, introducing fundamental programming concepts, algorithm logic, and practical robotics projects.</li>
+                <li>Mentored students through hands-on technical experiments and logic-building activities to foster early problem-solving skills.</li>
+            </ul>
+        </div>
+
+        <!-- 4. AS Enterprises -->
+        <div class="glass-panel p-6 md:p-8 rounded-2xl border border-cyan-500/20 bg-slate-900/60 backdrop-blur-xl">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 mb-4">
+                <div>
+                    <h3 class="text-xl font-bold text-white">Customer Service Representative & Lead</h3>
+                    <p class="text-cyan-400 font-medium">AS Enterprises — Full-Time</p>
+                </div>
+                <span class="text-xs font-mono text-gray-400 bg-white/5 px-3 py-1 rounded-full border border-white/10">Jul 2023 – Jan 2025</span>
+            </div>
+            <ul class="list-disc list-inside space-y-2 text-gray-300 text-sm md:text-base leading-relaxed">
+                <li>Led team operations and managed employee workflows, scheduling, and task allocations for international logistics accounts.</li>
+                <li>Served as team lead overseeing daily operational efficiency, client relations, and data entry protocols for US-based logistics operations.</li>
+                <li>Handled high-volume client communications and resolved escalated inquiries with accuracy and speed.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+        <!-- FEATURED PROJECTS SECTION -->
+        <section id="projects" class="py-20 px-6 relative border-t border-gray-800/50">
+            <div class="max-w-7xl mx-auto space-y-12">
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                    <div class="space-y-3">
+                        <span class="text-xs font-mono text-cyan-accent uppercase tracking-wider">Portfolio Works</span>
+                        <h2 class="text-3xl md:text-4xl font-heading font-bold text-white">Applied AI & Software Engineering</h2>
+                    </div>
+
+                    <!-- Filter Tabs -->
+                    <div class="flex flex-wrap gap-2 glass-card p-1.5 rounded-xl border border-gray-800" id="projectFilterContainer">
+                        <button class="filter-btn active px-4 py-2 rounded-lg text-xs font-mono font-semibold transition-all bg-cyan-accent text-navy-900" data-filter="all">All</button>
+                        <button class="filter-btn px-4 py-2 rounded-lg text-xs font-mono font-semibold text-gray-400 hover:text-white transition-all" data-filter="cv">Computer Vision</button>
+                        <button class="filter-btn px-4 py-2 rounded-lg text-xs font-mono font-semibold text-gray-400 hover:text-white transition-all" data-filter="backend">Backend & AI</button>
+                        <button class="filter-btn px-4 py-2 rounded-lg text-xs font-mono font-semibold text-gray-400 hover:text-white transition-all" data-filter="robotics">Robotics & Security</button>
+                    </div>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projectsGrid">
+                    
+                    <!-- Project 1 -->
+                    <div class="project-card glass-card rounded-2xl p-6 glass-card-hover border border-gray-800 flex flex-col justify-between" data-category="cv">
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span class="px-3 py-1 rounded-full bg-cyan-accent/10 text-cyan-accent text-xs font-mono font-semibold">YOLOv8 Vision</span>
+                                <span class="text-xs font-mono text-gray-400">0.84s Latency</span>
+                            </div>
+                            <h3 class="text-xl font-heading font-bold text-white">RoadGuard AI</h3>
+                            <p class="text-gray-300 text-xs leading-relaxed">
+                                Smart Road Infrastructure System using YOLOv8-Nano trained on 6,951 images to detect potholes & surface cracks in real time. Features Proximity-Weighted Hazard Density and Leaflet.js municipal maps.
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-gray-800/80 mt-6 space-y-4">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="px-2 py-0.5 rounded bg-navy-900 text-[10px] font-mono text-gray-400">YOLOv8</span>
+                                <span class="px-2 py-0.5 rounded bg-navy-900 text-[10px] font-mono text-gray-400">Flask</span>
+                                <span class="px-2 py-0.5 rounded bg-navy-900 text-[10px] font-mono text-gray-400">Leaflet.js</span>
+                            </div>
+                            <button onclick="openModal('roadguard')" class="w-full py-2.5 rounded-lg bg-navy-900 border border-cyan-accent/30 text-cyan-accent font-mono text-xs font-semibold hover:bg-cyan-accent hover:text-navy-900 transition-all flex items-center justify-center space-x-2">
+                                <span>Deep Dive Details</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card glass-card rounded-2xl p-6 glass-card-hover border border-gray-800 flex flex-col justify-between" data-category="cv">
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span class="px-3 py-1 rounded-full bg-teal-400/10 text-teal-400 text-xs font-mono font-semibold">Deep Learning</span>
+                                <span class="text-xs font-mono text-gray-400">80-90% Acc</span>
+                            </div>
+                            <h3 class="text-xl font-heading font-bold text-white">PneumoCare System</h3>
+                            <p class="text-gray-300 text-xs leading-relaxed">
+                                Custom CNN trained on 5,840 chest X-ray images (4,265 pneumonia / 1,575 normal) enabling automated diagnostic assistance via Flask interface.
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-gray-800/80 mt-6 space-y-4">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="px-2 py-0.5 rounded bg-navy-900 text-[10px] font-mono text-gray-400">TensorFlow</span>
+                                <span class="px-2 py-0.5 rounded bg-navy-900 text-[10px] font-mono text-gray-400">Keras</span>
+                                <span class="px-2 py-0.5 rounded bg-navy-900 text-[10px] font-mono text-gray-400">Flask</span>
+                            </div>
+                            <button onclick="openModal('pneumocare')" class="w-full py-2.5 rounded-lg bg-navy-900 border border-teal-400/30 text-teal-400 font-mono text-xs font-semibold hover:bg-teal-400 hover:text-navy-900 transition-all flex items-center justify-center space-x-2">
+                                <span>Deep Dive Details</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card glass-card rounded-2xl p-6 glass-card-hover border border-gray-800 flex flex-col justify-between" data-category="cv">
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span class="px-3 py-1 rounded-full bg-purple-400/10 text-purple-400 text-xs font-mono font-semibold">Agri-Tech</span>
+                                <span class="text-xs font-mono text-gray-400">MobileNetV2</span>
+                            </div>
+                            <h3 class="text-xl font-heading font-bold text-white">Rice Leaf Classifier</h3>
+                            <p class="text-gray-300 text-xs leading-relaxed">
+                                Agricultural computer vision model utilizing MobileNetV2 transfer learning across 3 disease classes, reaching 80-90% classification accuracy for edge devices.
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-gray-800/80 mt-6 space-y-4">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="px-2 py-0.5 rounded bg-navy-900 text-[10px] font-mono text-gray-400">MobileNetV2</span>
+                                <span class="px-2 py-0.5 rounded bg-navy-900 text-[10px] font-mono text-gray-400">OpenCV</span>
+                            </div>
+                            <button onclick="openModal('riceleaf')" class="w-full py-2.5 rounded-lg bg-navy-900 border border-purple-400/30 text-purple-400 font-mono text-xs font-semibold hover:bg-purple-400 hover:text-navy-900 transition-all flex items-center justify-center space-x-2">
+                                <span>Deep Dive Details</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card glass-card rounded-2xl p-6 glass-card-hover border border-gray-800 flex flex-col justify-between" data-category="backend">
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span class="px-3 py-1 rounded-full bg-cyan-accent/10 text-cyan-accent text-xs font-mono font-semibold">Agentic Voice OS</span>
+                                <span class="text-xs font-mono text-gray-400">LiveKit & Redis</span>
+                            </div>
+                            <h3 class="text-xl font-heading font-bold text-white">AI Voice Router System</h3>
+                            <p class="text-gray-300 text-xs leading-relaxed">
+                                High-concurrency agentic voice backend supporting automated call routing, LiveKit real-time audio rooms, Redis caching, and WhatsApp/CRM API integrations.
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-gray-800/80 mt-6 space-y-4">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="px-2 py-0.5 rounded bg-navy-900 text-[10px] font-mono text-gray-400">FastAPI</span>
+                                <span class="px-2 py-0.5 rounded bg-navy-900 text-[10px] font-mono text-gray-400">LiveKit</span>
+                                <span class="px-2 py-0.5 rounded bg-navy-900 text-[10px] font-mono text-gray-400">Redis</span>
+                            </div>
+                            <button onclick="openModal('voicerouter')" class="w-full py-2.5 rounded-lg bg-navy-900 border border-cyan-accent/30 text-cyan-accent font-mono text-xs font-semibold hover:bg-cyan-accent hover:text-navy-900 transition-all flex items-center justify-center space-x-2">
+                                <span>Deep Dive Details</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="project-card glass-card rounded-2xl p-6 glass-card-hover border border-gray-800 flex flex-col justify-between" data-category="backend">
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span class="px-3 py-1 rounded-full bg-teal-400/10 text-teal-400 text-xs font-mono font-semibold">Biometrics API</span>
+                                <span class="text-xs font-mono text-gray-400">Oracle 21c</span>
+                            </div>
+                            <h3 class="text-xl font-heading font-bold text-white">Facial Verification Microservice</h3>
+                            <p class="text-gray-300 text-xs leading-relaxed">
+                                Anti-spoofing facial verification microservice engineered with YuNet, SFace, and FastAPI, connected to Oracle 21c/ORDS with bcrypt PIN security.
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-gray-800/80 mt-6 space-y-4">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="px-2 py-0.5 rounded bg-navy-900 text-[10px] font-mono text-gray-400">YuNet</span>
+                                <span class="px-2 py-0.5 rounded bg-navy-900 text-[10px] font-mono text-gray-400">SFace</span>
+                                <span class="px-2 py-0.5 rounded bg-navy-900 text-[10px] font-mono text-gray-400">Oracle 21c</span>
+                            </div>
+                            <button onclick="openModal('facialverification')" class="w-full py-2.5 rounded-lg bg-navy-900 border border-teal-400/30 text-teal-400 font-mono text-xs font-semibold hover:bg-teal-400 hover:text-navy-900 transition-all flex items-center justify-center space-x-2">
+                                <span>Deep Dive Details</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div class="project-card glass-card rounded-2xl p-6 glass-card-hover border border-gray-800 flex flex-col justify-between" data-category="robotics">
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span class="px-3 py-1 rounded-full bg-purple-400/10 text-purple-400 text-xs font-mono font-semibold">Robotics & Simulation</span>
+                                <span class="text-xs font-mono text-gray-400">Webots / NAO v6</span>
+                            </div>
+                            <h3 class="text-xl font-heading font-bold text-white">NAO Celebration Dance</h3>
+                            <p class="text-gray-300 text-xs leading-relaxed">
+                                Programmed multi-phase humanoid robot motion planning using keyframe animation & forward kinematics in Webots adhering to RoboCup SPL constraints.
+                            </p>
+                        </div>
+                        <div class="pt-6 border-t border-gray-800/80 mt-6 space-y-4">
+                            <div class="flex flex-wrap gap-1.5">
+                                <span class="px-2 py-0.5 rounded bg-navy-900 text-[10px] font-mono text-gray-400">Webots</span>
+                                <span class="px-2 py-0.5 rounded bg-navy-900 text-[10px] font-mono text-gray-400">Kinematics</span>
+                                <span class="px-2 py-0.5 rounded bg-navy-900 text-[10px] font-mono text-gray-400">Python</span>
+                            </div>
+                            <button onclick="openModal('naorobot')" class="w-full py-2.5 rounded-lg bg-navy-900 border border-purple-400/30 text-purple-400 font-mono text-xs font-semibold hover:bg-purple-400 hover:text-navy-900 transition-all flex items-center justify-center space-x-2">
+                                <span>Deep Dive Details</span>
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS MATRIX -->
+        <section id="skills" class="py-20 px-6 relative">
+            <div class="max-w-7xl mx-auto space-y-12">
+                <div class="text-center space-y-4 max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-white">Technical Skillsets</h2>
+                    <p class="text-gray-400 text-base">Comprehensive stack across computer vision, backend systems, databases, and security.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    
+                    <!-- Skill Group 1 -->
+                    <div class="glass-card p-6 rounded-2xl border border-gray-800 space-y-4">
+                        <div class="flex items-center space-x-3 text-cyan-accent border-b border-gray-800 pb-3">
+                            <i class="fa-solid fa-brain text-xl"></i>
+                            <h3 class="font-heading font-bold text-white">AI & Deep Learning</h3>
+                        </div>
+                        <ul class="space-y-2 text-xs font-mono text-gray-300">
+                            <li>• YOLOv8 & MobileNetV2</li>
+                            <li>• TensorFlow / Keras</li>
+                            <li>• OpenCV & Image Processing</li>
+                            <li>• YuNet & SFace Biometrics</li>
+                            <li>• Anti-Spoofing Liveness</li>
+                            <li>• PyTorch Concepts</li>
+                        </ul>
+                    </div>
+
+                    <!-- Skill Group 2 -->
+                    <div class="glass-card p-6 rounded-2xl border border-gray-800 space-y-4">
+                        <div class="flex items-center space-x-3 text-purple-400 border-b border-gray-800 pb-3">
+                            <i class="fa-solid fa-server text-xl"></i>
+                            <h3 class="font-heading font-bold text-white">Backend & Architecture</h3>
+                        </div>
+                        <ul class="space-y-2 text-xs font-mono text-gray-300">
+                            <li>• FastAPI & Uvicorn</li>
+                            <li>• Flask Web App Deployments</li>
+                            <li>• RESTful & OpenAPI Specs</li>
+                            <li>• LiveKit Real-time Voice</li>
+                            <li>• Redis Caching & Queues</li>
+                            <li>• System Health Monitoring</li>
+                        </ul>
+                    </div>
+
+                    <!-- Skill Group 3 -->
+                    <div class="glass-card p-6 rounded-2xl border border-gray-800 space-y-4">
+                        <div class="flex items-center space-x-3 text-teal-400 border-b border-gray-800 pb-3">
+                            <i class="fa-solid fa-database text-xl"></i>
+                            <h3 class="font-heading font-bold text-white">Databases & DevOps</h3>
+                        </div>
+                        <ul class="space-y-2 text-xs font-mono text-gray-300">
+                            <li>• Oracle 21c & ORDS</li>
+                            <li>• SQLite & PostgreSQL</li>
+                            <li>• MongoDB & SQL Server</li>
+                            <li>• Docker Containerization</li>
+                            <li>• PM2 & Nginx Reverse Proxy</li>
+                            <li>• Linux Shell & SSH</li>
+                        </ul>
+                    </div>
+
+                    <!-- Skill Group 4 -->
+                    <div class="glass-card p-6 rounded-2xl border border-gray-800 space-y-4">
+                        <div class="flex items-center space-x-3 text-cyan-accent border-b border-gray-800 pb-3">
+                            <i class="fa-solid fa-shield-cat text-xl"></i>
+                            <h3 class="font-heading font-bold text-white">Security & Robotics</h3>
+                        </div>
+                        <ul class="space-y-2 text-xs font-mono text-gray-300">
+                            <li>• VAPT (Metasploit, Nmap, Nessus)</li>
+                            <li>• Wireshark & Network Security</li>
+                            <li>• bcrypt & SHA-256 Hashing</li>
+                            <li>• NAO v6 Humanoid Robotics</li>
+                            <li>• Webots Forward Kinematics</li>
+                            <li>• Git, GitHub & Cloudflare</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE TERMINAL EMULATOR -->
+        <section id="terminal" class="py-20 px-6 relative border-t border-gray-800/50">
+            <div class="max-w-5xl mx-auto space-y-8">
+                <div class="text-center space-y-3">
+                    <span class="text-xs font-mono text-cyan-accent uppercase tracking-wider">Developer Console</span>
+                    <h2 class="text-3xl font-heading font-bold text-white">Interactive Terminal Emulator</h2>
+                    <p class="text-gray-400 text-xs font-mono">Type commands like <span class="text-cyan-accent">help</span>, <span class="text-cyan-accent">projects</span>, <span class="text-cyan-accent">skills</span>, <span class="text-cyan-accent">whoami</span>, or <span class="text-cyan-accent">contact</span></p>
+                </div>
+
+                <div class="glass-card rounded-2xl border border-gray-800 overflow-hidden shadow-2xl">
+                    <!-- Terminal Bar -->
+                    <div class="bg-navy-900 px-4 py-3 border-b border-gray-800 flex items-center justify-between">
+                        <div class="flex items-center space-x-2">
+                            <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                            <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                            <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                            <span class="text-xs font-mono text-gray-400 ml-2">esha-shahid@ai-workstation:~</span>
+                        </div>
+                        <div class="flex space-x-2">
+                            <button onclick="executeCommand('help')" class="px-2 py-0.5 rounded bg-gray-800 text-[10px] font-mono text-cyan-accent hover:bg-gray-700">help</button>
+                            <button onclick="executeCommand('whoami')" class="px-2 py-0.5 rounded bg-gray-800 text-[10px] font-mono text-purple-400 hover:bg-gray-700">whoami</button>
+                            <button onclick="executeCommand('clear')" class="px-2 py-0.5 rounded bg-gray-800 text-[10px] font-mono text-gray-400 hover:bg-gray-700">clear</button>
+                        </div>
+                    </div>
+
+                    <!-- Terminal Output Window -->
+                    <div id="terminalOutput" class="p-6 h-80 font-mono text-xs md:text-sm overflow-y-auto terminal-scroll space-y-3 bg-navy-900/90 text-gray-300">
+                        <div class="text-cyan-accent font-semibold">
+                            Welcome to Esha Shahid's Interactive Developer Terminal [v2.4.0]<br>
+                            Type 'help' to view available system commands.
+                        </div>
+                    </div>
+
+                    <!-- Terminal Input Bar -->
+                    <div class="bg-navy-900/95 px-4 py-3 border-t border-gray-800 flex items-center space-x-3">
+                        <span class="text-cyan-accent font-mono text-sm">esha@portfolio:~$</span>
+                        <input type="text" id="terminalInput" class="bg-transparent text-white font-mono text-sm w-full focus:outline-none placeholder-gray-600" placeholder="Type command..." autocomplete="off">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section id="education" class="py-20 px-6 relative border-t border-gray-800/50">
+            <div class="max-w-7xl mx-auto space-y-12">
+                <div class="text-center space-y-3">
+                    <h2 class="text-3xl font-heading font-bold text-white">Education & Qualifications</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Degree -->
+                    <div class="glass-card p-6 rounded-2xl border border-gray-800 space-y-3 border-t-2 border-t-cyan-accent">
+                        <span class="text-xs font-mono text-cyan-accent">Sep 2023 - 2026</span>
+                        <h3 class="text-lg font-heading font-bold text-white">BSc (Hons) Computer Science</h3>
+                        <p class="text-xs text-gray-300 font-medium">The Millennium Universal College (TMUC)</p>
+                        <p class="text-xs text-cyan-accent font-semibold">Affiliated with University of Hertfordshire (UK)</p>
+                        <p class="text-xs text-gray-400 pt-2">Specializing in Computer Vision, AI Architectures & Backend Infrastructure.</p>
+                    </div>
+
+                    <!-- Intermediate -->
+                    <div class="glass-card p-6 rounded-2xl border border-gray-800 space-y-3">
+                        <span class="text-xs font-mono text-gray-400">Aug 2021 - 2023</span>
+                        <h3 class="text-lg font-heading font-bold text-white">Intermediate in Commerce</h3>
+                        <p class="text-xs text-gray-300 font-medium">Bahria College Karsaz</p>
+                        <p class="text-xs text-gray-400 pt-2">Strong analytical and quantitative background foundation.</p>
+                    </div>
+
+                    <!-- Matric -->
+                    <div class="glass-card p-6 rounded-2xl border border-gray-800 space-y-3">
+                        <span class="text-xs font-mono text-gray-400">Aug 2019 - 2021</span>
+                        <h3 class="text-lg font-heading font-bold text-white">Matriculation in General Science</h3>
+                        <p class="text-xs text-gray-300 font-medium">The Vision School</p>
+                        <p class="text-xs text-gray-400 pt-2">Fundamental computational thinking and physical sciences.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="py-20 px-6 relative">
+            <div class="max-w-7xl mx-auto space-y-12">
+                <div class="text-center space-y-4 max-w-2xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-white">Let's Connect</h2>
+                    <p class="text-gray-400 text-sm">Open for AI Engineering, Computer Vision, and High-Performance Backend roles.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    
+                    <!-- Contact Cards -->
+                    <div class="lg:col-span-5 space-y-4">
+                        
+                        <!-- Email Card -->
+                        <div class="glass-card p-5 rounded-xl border border-gray-800 flex items-center justify-between">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 rounded-lg bg-cyan-accent/10 flex items-center justify-center text-cyan-accent text-lg">
+                                    <i class="fa-regular fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-gray-400 font-mono">Direct Email</div>
+                                    <div class="text-sm font-semibold text-white">Ishashahid71@gmail.com</div>
+                                </div>
+                            </div>
+                            <button onclick="copyToClipboard('Ishashahid71@gmail.com', 'Email copied!')" class="text-xs font-mono text-cyan-accent hover:underline">
+                                Copy
+                            </button>
+                        </div>
+
+                        <!-- Phone Card -->
+                        <div class="glass-card p-5 rounded-xl border border-gray-800 flex items-center justify-between">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 rounded-lg bg-purple-accent/10 flex items-center justify-center text-purple-400 text-lg">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-gray-400 font-mono">Phone / WhatsApp</div>
+                                    <div class="text-sm font-semibold text-white">+92 325 3509975</div>
+                                </div>
+                            </div>
+                            <button onclick="copyToClipboard('+923253509975', 'Phone number copied!')" class="text-xs font-mono text-purple-400 hover:underline">
+                                Copy
+                            </button>
+                        </div>
+
+                        <!-- GitHub Card -->
+                        <a href="https://github.com/Isha-Shahid" target="_blank" class="glass-card p-5 rounded-xl border border-gray-800 flex items-center justify-between hover:border-cyan-accent/40 transition-all group">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 rounded-lg bg-gray-800 flex items-center justify-center text-white text-lg">
+                                    <i class="fa-brands fa-github"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-gray-400 font-mono">GitHub Profile</div>
+                                    <div class="text-sm font-semibold text-white group-hover:text-cyan-accent transition-colors">github.com/Isha-Shahid</div>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400 group-hover:text-cyan-accent"></i>
+                        </a>
+
+                        <!-- LinkedIn Card -->
+                        <a href="https://linkedin.com/in/esha-shahid-6502a1289" target="_blank" class="glass-card p-5 rounded-xl border border-gray-800 flex items-center justify-between hover:border-purple-accent/40 transition-all group">
+                            <div class="flex items-center space-x-4">
+                                <div class="w-10 h-10 rounded-lg bg-blue-600/10 flex items-center justify-center text-blue-400 text-lg">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </div>
+                                <div>
+                                    <div class="text-xs text-gray-400 font-mono">LinkedIn</div>
+                                    <div class="text-sm font-semibold text-white group-hover:text-purple-400 transition-colors">esha-shahid-6502a1289</div>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-xs text-gray-400 group-hover:text-purple-400"></i>
+                        </a>
+
+                    </div>
+
+                    <!-- Interactive Form Mockup -->
+                    <div class="lg:col-span-7 glass-card p-8 rounded-2xl border border-gray-800 space-y-6">
+                        <h3 class="text-xl font-heading font-bold text-white">Send a Direct Message</h3>
+                        <form id="contactForm" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-mono text-gray-400 mb-2">Your Name</label>
+                                    <input type="text" required class="w-full px-4 py-3 rounded-xl bg-navy-900 border border-gray-800 text-white text-sm focus:outline-none focus:border-cyan-accent" placeholder="Jane Doe">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-mono text-gray-400 mb-2">Your Email</label>
+                                    <input type="email" required class="w-full px-4 py-3 rounded-xl bg-navy-900 border border-gray-800 text-white text-sm focus:outline-none focus:border-cyan-accent" placeholder="jane@example.com">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block text-xs font-mono text-gray-400 mb-2">Subject</label>
+                                <input type="text" required class="w-full px-4 py-3 rounded-xl bg-navy-900 border border-gray-800 text-white text-sm focus:outline-none focus:border-cyan-accent" placeholder="Project Opportunity / Technical Inquiry">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-mono text-gray-400 mb-2">Message</label>
+                                <textarea rows="4" required class="w-full px-4 py-3 rounded-xl bg-navy-900 border border-gray-800 text-white text-sm focus:outline-none focus:border-cyan-accent resize-none" placeholder="Hello Esha, I am reaching out regarding..."></textarea>
+                            </div>
+                            <button type="submit" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-cyan-accent to-teal-400 text-navy-900 font-bold hover:shadow-lg hover:shadow-cyan-accent/20 transition-all font-mono text-sm">
+                                Dispatch Message
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800/80 py-8 px-6 relative z-10 bg-navy-900">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between text-xs text-gray-400 font-mono gap-4">
+            <div>© 2026 Esha Shahid. All Rights Reserved.</div>
+            <div class="flex space-x-6">
+                <a href="https://github.com/Isha-Shahid" target="_blank" class="hover:text-cyan-accent">GitHub</a>
+                <a href="https://linkedin.com/in/esha-shahid-6502a1289" target="_blank" class="hover:text-cyan-accent">LinkedIn</a>
+                <a href="#hero" class="hover:text-cyan-accent">Back to Top ↑</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- PROJECT DETAIL MODAL CONTAINER -->
+    <div id="projectModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-navy-900/80 backdrop-blur-md">
+        <div class="glass-card max-w-2xl w-full rounded-2xl border border-cyan-accent/40 p-6 md:p-8 space-y-6 relative shadow-2xl max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="modalContent">
+                <!-- Injected via JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden px-5 py-3 rounded-xl glass-card border border-cyan-accent text-cyan-accent text-xs font-mono shadow-2xl">
+        <span id="toastMessage">Notification</span>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // --- Modal Data Definitions ---
+        const modalData = {
+            roadguard: {
+                title: "RoadGuard AI: Smart Infrastructure Monitoring",
+                category: "Computer Vision & Smart City IoT",
+                tech: ["YOLOv8-Nano", "Flask", "SQLite", "OpenCV", "HTML5 Geolocation", "Leaflet.js"],
+                details: `
+                    <p class="text-sm text-gray-300 leading-relaxed">
+                        Developed a real-time road monitoring solution utilizing a custom-trained <strong>YOLOv8-Nano</strong> model trained on <strong>6,951 images</strong> to automatically pinpoint potholes and surface cracks with an inference speed of <strong>0.84 seconds</strong>.
+                    </p>
+                    <div class="space-y-2 pt-2">
+                        <h4 class="text-xs font-mono text-cyan-accent uppercase">Key Features & Architecture:</h4>
+                        <ul class="text-xs text-gray-300 space-y-1.5 list-disc list-inside">
+                            <li>Engineered a custom <strong>Proximity-Weighted Hazard Density</strong> algorithm classifying municipal damage into a 4-tier severity scale.</li>
+                            <li>Integrated inside a 3-tier Flask/SQLite web application combined with OpenCV image processing.</li>
+                            <li>Interactive municipal damage mapping dynamic dashboard powered by Leaflet.js with HTML5 GPS tagging.</li>
+                            <li>Achieved an overall end-to-end pipeline latency of 2.42 seconds.</li>
+                        </ul>
+                    </div>
+                `
+            },
+            pneumocare: {
+                title: "PneumoCare: Pneumonia Detection System",
+                category: "Medical Deep Learning & Image Classification",
+                tech: ["TensorFlow/Keras", "Custom CNN", "Flask", "SQLite"],
+                details: `
+                    <p class="text-sm text-gray-300 leading-relaxed">
+                        Trained a custom Convolutional Neural Network (CNN) on a benchmark dataset of <strong>5,840 chest X-ray images</strong> (4,265 pneumonia cases / 1,575 healthy control cases) to assist medical personnel with automated diagnostic triage.
+                    </p>
+                    <div class="space-y-2 pt-2">
+                        <h4 class="text-xs font-mono text-teal-400 uppercase">Key Features & Architecture:</h4>
+                        <ul class="text-xs text-gray-300 space-y-1.5 list-disc list-inside">
+                            <li>Achieved <strong>80-90% classification accuracy</strong> across validation subsets.</li>
+                            <li>Deployed through a Flask web portal allowing health workers to upload X-rays and instantly generate diagnostic confidence scores.</li>
+                            <li>Includes doctor review workflow and patient database tracking via SQLite.</li>
+                        </ul>
+                    </div>
+                `
+            },
+            riceleaf: {
+                title: "Rice Leaf Disease Classifier",
+                category: "Agricultural Computer Vision & Transfer Learning",
+                tech: ["MobileNetV2", "Transfer Learning", "OpenCV", "Python"],
+                details: `
+                    <p class="text-sm text-gray-300 leading-relaxed">
+                        Trained a lightweight <strong>MobileNetV2</strong> transfer learning model on 120 agricultural rice leaf images across 3 specific disease categories.
+                    </p>
+                    <div class="space-y-2 pt-2">
+                        <h4 class="text-xs font-mono text-purple-400 uppercase">Key Features & Architecture:</h4>
+                        <ul class="text-xs text-gray-300 space-y-1.5 list-disc list-inside">
+                            <li>Reached <strong>80-90% classification accuracy</strong> despite lightweight parameters.</li>
+                            <li>Optimized model architecture for low-power mobile or edge-device deployment in field conditions.</li>
+                        </ul>
+                    </div>
+                `
+            },
+            voicerouter: {
+                title: "AI Voice Router & Agentic OS Microservices",
+                category: "High-Concurrency Backend Infrastructure",
+                tech: ["FastAPI", "LiveKit", "Redis", "Asterisk/SIP", "WhatsApp Business API"],
+                details: `
+                    <p class="text-sm text-gray-300 leading-relaxed">
+                        Architected high-throughput backend services for an AI voice routing engine and Agentic OS platform at Dreamz Marketing.
+                    </p>
+                    <div class="space-y-2 pt-2">
+                        <h4 class="text-xs font-mono text-cyan-accent uppercase">Key Features & Architecture:</h4>
+                        <ul class="text-xs text-gray-300 space-y-1.5 list-disc list-inside">
+                            <li>Integrated <strong>LiveKit real-time audio rooms</strong> and SIP/Asterisk telephony channels.</li>
+                            <li>Utilized <strong>Redis</strong> for low-latency session caching and message queues.</li>
+                            <li>Integrated Zoho CRM and WhatsApp Business API webhooks for automated agent dispatch.</li>
+                        </ul>
+                    </div>
+                `
+            },
+            facialverification: {
+                title: "YuNet & SFace Facial Verification API",
+                category: "Biometric Security Microservice",
+                tech: ["FastAPI", "YuNet", "SFace", "Oracle 21c", "ORDS", "bcrypt"],
+                details: `
+                    <p class="text-sm text-gray-300 leading-relaxed">
+                        Built enterprise biometric authentication microservices for corporate client security stacks.
+                    </p>
+                    <div class="space-y-2 pt-2">
+                        <h4 class="text-xs font-mono text-teal-400 uppercase">Key Features & Architecture:</h4>
+                        <ul class="text-xs text-gray-300 space-y-1.5 list-disc list-inside">
+                            <li>Implemented anti-spoofing and liveness detection powered by YuNet and SFace models.</li>
+                            <li>Connected to <strong>Oracle 21c</strong> database with ORDS REST endpoints.</li>
+                            <li>Secured pin & token verification using bcrypt cryptographic hashing.</li>
+                        </ul>
+                    </div>
+                `
+            },
+            naorobot: {
+                title: "NAO Humanoid Robot Celebration Dance",
+                category: "Humanoid Robotics & Motion Planning",
+                tech: ["Webots Simulator", "NAO v6", "Forward Kinematics", "Keyframe Animation"],
+                details: `
+                    <p class="text-sm text-gray-300 leading-relaxed">
+                        Programmed multi-phase synchronized celebration choreography for the NAO v6 humanoid robot inside Webots simulation environment.
+                    </p>
+                    <div class="space-y-2 pt-2">
+                        <h4 class="text-xs font-mono text-purple-400 uppercase">Key Features & Architecture:</h4>
+                        <ul class="text-xs text-gray-300 space-y-1.5 list-disc list-inside">
+                            <li>Designed 3 choreographed routines: clapping, side-stepping balance, and victory wave.</li>
+                            <li>Applied joint-angle keyframes and linear joint interpolation based on <strong>forward kinematics</strong>.</li>
+                            <li>Maintained strict joint constraints aligned with RoboCup Standard Platform League (SPL) rules.</li>
+                        </ul>
+                    </div>
+                `
+            }
+        };
+
+        // Modal Handlers
+        function openModal(key) {
+            const data = modalData[key];
+            if (!data) return;
+            const content = document.getElementById('modalContent');
+            content.innerHTML = `
+                <div class="space-y-4">
+                    <span class="px-3 py-1 rounded-full bg-cyan-accent/10 text-cyan-accent text-xs font-mono font-semibold">${data.category}</span>
+                    <h3 class="text-2xl font-heading font-bold text-white">${data.title}</h3>
+                    <div class="flex flex-wrap gap-2 pt-1">
+                        ${data.tech.map(t => `<span class="px-2.5 py-1 rounded-md bg-navy-900 border border-gray-800 text-xs font-mono text-gray-300">${t}</span>`).join('')}
+                    </div>
+                    <div class="border-t border-gray-800 pt-4">
+                        ${data.details}
+                    </div>
+                </div>
+            `;
+            document.getElementById('projectModal').classList.remove('hidden');
+            document.getElementById('projectModal').classList.add('flex');
+        }
+
+        function closeModal() {
+            document.getElementById('projectModal').classList.add('hidden');
+            document.getElementById('projectModal').classList.remove('flex');
+        }
+
+        // Project Filtering Logic
+        const filterBtns = document.querySelectorAll('#projectFilterContainer .filter-btn');
+        const projectCards = document.querySelectorAll('#projectsGrid .project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-cyan-accent', 'text-navy-900');
+                    b.classList.add('text-gray-400');
+                });
+                btn.classList.add('active', 'bg-cyan-accent', 'text-navy-900');
+                btn.classList.remove('text-gray-400');
+
+                const filter = btn.getAttribute('data-filter');
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Copy Helper
+        function copyToClipboard(text, message) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+
+            showToast(message);
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMessage').innerText = msg;
+            toast.classList.remove('hidden');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 3000);
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            showToast('Message sent! Esha will get back to you shortly.');
+            document.getElementById('contactForm').reset();
+        }
+
+        // Mobile Drawer Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileDrawer.classList.toggle('hidden');
+        });
+        document.querySelectorAll('.mobile-link').forEach(l => {
+            l.addEventListener('click', () => mobileDrawer.classList.add('hidden'));
+        });
+
+        // --- Interactive CLI Logic ---
+        const terminalOutput = document.getElementById('terminalOutput');
+        const terminalInput = document.getElementById('terminalInput');
+
+        const cliCommands = {
+            help: `
+<span class="text-cyan-accent font-semibold">Available Commands:</span><br>
+&nbsp;&nbsp;<span class="text-purple-400">whoami</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Print candidate executive overview<br>
+&nbsp;&nbsp;<span class="text-purple-400">projects</span>&nbsp;&nbsp;&nbsp;- List key applied AI & backend projects<br>
+&nbsp;&nbsp;<span class="text-purple-400">skills</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Output technical stack capabilities<br>
+&nbsp;&nbsp;<span class="text-purple-400">contact</span>&nbsp;&nbsp;&nbsp;&nbsp;- Display official contact credentials<br>
+&nbsp;&nbsp;<span class="text-purple-400">clear</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Flush terminal screen buffer
+            `,
+            whoami: `
+<span class="text-white font-semibold">Esha Shahid</span> | Computer Science Graduate (1st Class Honours)<br>
+Specialist in Computer Vision, Deep Learning, and Agentic AI Microservices.<br>
+Experience: Backend Developer @ Dreamz Marketing | AI/ML Technical Faculty Instructor.
+            `,
+            projects: `
+<span class="text-cyan-accent font-semibold">Key Projects:</span><br>
+1. <span class="text-white">RoadGuard AI</span> [YOLOv8, 0.84s Latency, 6,951 Images]<br>
+2. <span class="text-white">PneumoCare</span> [Custom CNN, 5,840 Chest X-rays, 80-90% Acc]<br>
+3. <span class="text-white">Rice Leaf Classifier</span> [MobileNetV2 Transfer Learning]<br>
+4. <span class="text-white">AI Voice Router & Agentic OS</span> [FastAPI, LiveKit, Redis]<br>
+5. <span class="text-white">Facial Verification API</span> [YuNet, SFace, Oracle 21c, ORDS]
+            `,
+            skills: `
+<span class="text-teal-300 font-semibold">Technical Stack:</span><br>
+• <span class="text-gray-300">AI/CV:</span> YOLOv8, MobileNetV2, TensorFlow, OpenCV, YuNet, SFace<br>
+• <span class="text-gray-300">Backend:</span> FastAPI, Flask, LiveKit, Redis, Oracle 21c, SQLite<br>
+• <span class="text-gray-300">DevOps & Security:</span> Docker, Nginx, VAPT (Nmap, Metasploit, Wireshark)
+            `,
+            contact: `
+<span class="text-cyan-accent font-semibold">Contact Details:</span><br>
+Email: Ishashahid71@gmail.com<br>
+Phone: +92 325 3509975<br>
+GitHub: https://github.com/Isha-Shahid<br>
+LinkedIn: linkedin.com/in/esha-shahid-6502a1289
+            `
+        };
+
+        function executeCommand(cmd) {
+            const cleanCmd = cmd.trim().toLowerCase();
+            const promptLine = document.createElement('div');
+            promptLine.innerHTML = `<span class="text-cyan-accent">esha@portfolio:~$</span> ${cmd}`;
+            terminalOutput.appendChild(promptLine);
+
+            if (cleanCmd === 'clear') {
+                terminalOutput.innerHTML = `
+                    <div class="text-cyan-accent font-semibold">
+                        Terminal buffer cleared.<br>
+                        Type 'help' to view available system commands.
+                    </div>
+                `;
+            } else if (cliCommands[cleanCmd]) {
+                const responseLine = document.createElement('div');
+                responseLine.className = 'pl-2 border-l border-cyan-accent/40 my-1';
+                responseLine.innerHTML = cliCommands[cleanCmd];
+                terminalOutput.appendChild(responseLine);
+            } else if (cleanCmd !== '') {
+                const errLine = document.createElement('div');
+                errLine.className = 'text-red-400';
+                errLine.innerText = `Command not recognized: '${cmd}'. Type 'help' for available commands.`;
+                terminalOutput.appendChild(errLine);
+            }
+
+            terminalOutput.scrollTop = terminalOutput.scrollHeight;
+        }
+
+        terminalInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                const val = terminalInput.value;
+                executeCommand(val);
+                terminalInput.value = '';
+            }
+        });
+    </script>
+</body>
+</html>
